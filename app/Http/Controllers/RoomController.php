@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\facilities;
 use App\Models\Features;
 use App\Models\Room;
+use App\Models\RoomFacilities;
 use App\Models\RoomFeature;
 use Illuminate\Http\Request;
 
@@ -56,6 +57,15 @@ class RoomController extends Controller
                 RoomFeature::create([
                     'room_id' => $room->id,
                     'feature_id' => $featureId,
+                ]);
+            }
+        }
+
+        if ($request->has('facilities_id')) {
+            foreach ($request->facilities_id as $facilitiesId) {
+                RoomFacilities::create([
+                    'room_id' => $room->id,
+                    'facilities_id' => $facilitiesId,
                 ]);
             }
         }
