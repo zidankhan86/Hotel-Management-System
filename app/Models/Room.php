@@ -13,11 +13,6 @@ class Room extends Model
 
     public function features()
     {
-        return $this->belongsToMany(Features::class,'features_id','id');
-    }
-
-    public function facilities()
-    {
-        return $this->belongsToMany(facilities::class,'facilities_id','id');
+        return $this->belongsToMany(Features::class, 'room_features');
     }
 }

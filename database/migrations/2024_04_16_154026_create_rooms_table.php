@@ -20,12 +20,10 @@ return new class extends Migration
             $table->string('adult');
             $table->string('children');
             $table->longText('description');
-            $table->string('image');
-            $table->foreignId('features_id');
-            $table->foreignId('facilities_id');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
-        
+
     }
 
     /**

@@ -28,12 +28,13 @@ class FacilitiesController extends Controller
      */
     public function store(Request $request)
     {
-       
+
         facilities::create([
-            "name"=>$request->name,
-            "description"=>$request->description,
+            'name' => $request->name,
+            'description' => $request->description,
 
         ]);
+
         return back();
     }
 

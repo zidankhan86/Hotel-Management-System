@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\facilities;
 use App\Models\Features;
 use App\Models\Room;
+use App\Models\RoomFeature;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -16,7 +17,8 @@ class RoomController extends Controller
     {
         $features = Features::all();
         $facilities = facilities::all();
-        return view('backend.room.room-table',compact('features','facilities'));
+
+        return view('backend.room.room-table', compact('features', 'facilities'));
     }
 
     /**
@@ -32,26 +34,32 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-
         $imageName = null;
         if ($request->hasFile('image')) {
             $imageName = date('Ymdhis').'.'.$request->image->extension();
             $request->image->storeAs('uploads', $imageName, 'public');
         }
 
-        Room::create([
-            "category_name"=>$request->category_name,
-            "area"=>$request->area,
-            "price"=>$request->price,
-            "quantity"=>$request->quantity,
-            "adult"=>$request->adult,
-            "children"=>$request->children,
-            "description"=>$request->description,
-            "image"=>$imageName,
-            "features_id" => implode(',', $request->features_id), 
-            "facilities_id" => implode(',', $request->facilities_id),
-            
+        $room = Room::create([
+            'category_name' => $request->category_name,
+            'area' => $request->area,
+            'price' => $request->price,
+            'quantity' => $request->quantity,
+            'adult' => $request->adult,
+            'children' => $request->children,
+            'description' => $request->description,
+            'image' => $imageName,
         ]);
+
+        if ($request->has('features_id')) {
+            foreach ($request->features_id as $featureId) {
+                RoomFeature::create([
+                    'room_id' => $room->id,
+                    'feature_id' => $featureId,
+                ]);
+            }
+        }
+
         return back();
     }
 

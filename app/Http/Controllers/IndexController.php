@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class IndexController extends Controller
 {
-    public function dashboard(){
+    public function dashboard()
+    {
         return view('backend.dashboard.dashboard');
     }
 }

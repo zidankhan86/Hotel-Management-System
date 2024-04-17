@@ -10,8 +10,8 @@ Route::get('/', function () {
     return view('backend.index');
 });
 
-Route::get('/',[IndexController::class,'dashboard'])->name('dashboard');
+Route::get('/', [IndexController::class, 'dashboard'])->name('dashboard');
 
-Route::resource('room',RoomController::class);
-Route::resource('facilities',FacilitiesController::class);
-Route::resource('features',FeaturesController::class);
+Route::resource('room', RoomController::class);
+Route::resource('facilities', FacilitiesController::class);
+Route::resource('features', FeaturesController::class);

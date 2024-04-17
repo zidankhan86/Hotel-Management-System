@@ -29,8 +29,9 @@ class FeaturesController extends Controller
     public function store(Request $request)
     {
         Features::create([
-            "name"=>$request->name
+            'name' => $request->name,
         ]);
+
         return back();
     }
 
