@@ -12,7 +12,8 @@ class FacilitiesController extends Controller
      */
     public function index()
     {
-        return view('backend.features_and_facilities.facilities');
+        $facilities = facilities::all();
+        return view('backend.features_and_facilities.facilities',compact('facilities'));
     }
 
     /**

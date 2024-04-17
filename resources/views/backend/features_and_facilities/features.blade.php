@@ -11,17 +11,20 @@
         <tr>
             <th style="padding: 8px; background-color: #0c0707; color: white;">#</th>
             <th style="padding: 8px; background-color: #0c0b0b; color: white;">Name</th>
-            <th style="padding: 8px; background-color: #0f0d0d; color: white;">Area</th>
-            <th style="padding: 8px; background-color: #0e0d0d; color: white;">Price</th>
+            <th style="padding: 8px; background-color: #0e0d0d; color: white;">Action</th>
         </tr>
       </thead>
       <tbody>
+    @foreach ($features as $feature)
         <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">1</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">Mark</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">Otto</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">@mdo</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">{{$feature->id}}</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">{{$feature->name}}</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">
+            <a href="" class="btn btn-info"><i class="fas fa-edit"></i></a>
+            <a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+          </td>
         </tr>
+    @endforeach
       </tbody>
     </table>
   </div>

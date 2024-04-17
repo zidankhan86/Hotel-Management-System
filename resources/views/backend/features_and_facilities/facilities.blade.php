@@ -16,12 +16,20 @@
         </tr>
       </thead>
       <tbody>
+     @foreach ($facilities as $facilitiy)
+
         <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">1</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">Mark</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">Otto</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">@mdo</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">{{$facilitiy->id}}</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">{{$facilitiy->name}}</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">{{$facilitiy->description}}</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">
+          <a href="" class="btn btn-info"><i class="fas fa-edit"></i></a>
+          <a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+          
+          </td>
         </tr>
+  
+     @endforeach
       </tbody>
     </table>
   </div>

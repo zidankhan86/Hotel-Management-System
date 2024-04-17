@@ -84,7 +84,7 @@
         <div style="display: inline-block;">
           @foreach ($features as $feature)
           <input type="checkbox" id="feature_{{ $feature->id }}" name="features_id[]" value="{{ $feature->id }}">
-          <label for="feature_{{ $feature->id }}">{{ $feature->name }}</label>
+          <label for="feature_{{ $feature->id }}" style="margin-right: 20px;">{{ $feature->name }}</label>
           @endforeach
         </div>
     </div>
@@ -94,7 +94,7 @@
         <div style="display: inline-block;">
             @foreach ($facilities as $facility)
                 <input type="checkbox" id="facility_{{ $facility->id }}" name="facilities_id[]" value="{{ $facility->id }}">
-                <label for="facility_{{ $facility->id }}">{{ $facility->name }}</label>
+                <label for="facility_{{ $facility->id }}" style="margin-right: 20px;">{{ $facility->name }}</label>
             @endforeach
         </div>
     </div>
