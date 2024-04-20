@@ -97,7 +97,7 @@
                 <label for="facility_{{ $facility->id }}" style="margin-right: 20px;">{{ $facility->name }}</label>
             @endforeach
         </div>
-    </div>
+    </div>  
 
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Description</label>
